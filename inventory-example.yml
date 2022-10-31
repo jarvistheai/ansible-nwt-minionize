@@ -1,0 +1,17 @@
+all:
+  hosts:
+    lb.example.com
+  children:
+    webservers:
+      hosts:
+        web1.example.com
+        web2.example.com
+        web3.example.com
+    database:
+      hosts:
+        db1.example.com
+        db2.example.com
+
+  vars:
+    ansible_user: root
+    ansible_ssh_private_key_file: /path/to/key/file
