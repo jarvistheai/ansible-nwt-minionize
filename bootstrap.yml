@@ -1,0 +1,93 @@
+---
+- hosts: all
+  become: yes # change to the root user
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt:
+        update_cache: yes
+        cache_valid_time: 3
+
+    - name: Upgrade distro.
+      apt:
+        upgrade: yes
+
+  tasks:
+    - name: Install molly-guard.
+      apt:
+        name: molly-guard
+        state: present
+
+    - name: Install htop.
+      apt:
+        name: htop
+        state: present
+
+    - name: Install fail2ban.
+      apt:
+        name: fail2ban
+        state: present
+
+    - name: Install tcpdump.
+      apt:
+        name: tcpdump
+        state: present
+
+    - name: Install dnsutils.
+      apt:
+        name: dnsutils
+        state: present
+
+    - name: Install curl.
+      apt:
+        name: curl
+        state: present
+
+    - name: Install wget.
+      apt:
+        name: wget
+        state: present
+
+    - name: Install iftop.
+      apt:
+        name: iftop
+        state: present
+
+    - name: Install git.
+      apt:
+        name: git
+        state: present
+
+    - name: Install haveged.
+      apt:
+        name: haveged
+        state: present
+
+    - name: Install screen.
+      apt:
+        name: screen
+        state: present
+
+    - name: Install byobu.
+      apt:
+        name: byobu
+        state: present
+
+    - name: Install tmux.
+      apt:
+        name: tmux
+        state: present
+
+    - name: Install net-tools.
+      apt:
+        name: net-tools
+        state: present
+
+    - name: Install unattended-upgrades.
+      apt:
+        name: unattended-upgrades
+        state: present
+
+    - name: Set timezone to Europe/Vienna
+      timezone:
+        name: Europe/Vienna
